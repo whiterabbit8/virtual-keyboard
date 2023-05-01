@@ -1,0 +1,79 @@
+.body {
+  display: flex;
+  flex-direction: column;
+}
+
+.textarea {
+  margin: 20px auto;
+}
+
+.keyboard {
+  margin: 0 auto;
+  padding: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  width: 685px;
+  gap: 5px;
+  background: #9c9c9c;
+  border-radius: 3px;
+}
+
+.key {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: #535353;
+  border-radius: 3px;
+  color: #fff;
+  font-family: 'Arial';
+  font-size: 16px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.key:hover,
+.key.press {
+  background: #ff8c00;
+}
+
+.backspace,
+.caps,
+.shift_left {
+  width: 100px;
+}
+
+.tab {
+  width: 55px;
+}
+
+.delete {
+  width: 45px;
+}
+
+.enter,
+.shift_right {
+  width: 85px;
+}
+
+.space {
+  width: 325px;
+}
+
+.backspace,
+.del,
+.caps,
+.shift,
+.tab,
+.delete,
+.enter,
+.space,
+.ctrl,
+.alt,
+.win,
+.arrow {
+  background: #353535;
+}
