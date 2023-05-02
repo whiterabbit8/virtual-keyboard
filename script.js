@@ -15,7 +15,7 @@ keyboard.showKeys();
 const p = document.createElement('p');
 p.className = 'p';
 p.innerHTML = 'Keyboard developed in Windows<br>For language switch use leftAlt + leftShift<br><br><br>' +
-'<a href="https://github.com/whiterabbit8/virtual-keyboard/pull/1">Link to Pull Request</a><br>Sorry for that, I was exausted and innatentive';
+'<a href="https://github.com/whiterabbit8/virtual-keyboard/pull/2">Link to Pull Request</a><br>Sorry for that, I was exausted and innatentive';
 document.body.append(p);
 
 
