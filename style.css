@@ -36,7 +36,7 @@
 }
 
 .key:hover,
-.key.press {
+.key.pressed {
   background: #ff8c00;
 }
 
@@ -76,4 +76,8 @@
 .win,
 .arrow {
   background: #353535;
+}
+
+.hide {
+  display: none;
 }
