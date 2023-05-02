@@ -20,7 +20,7 @@ class Keyboard {
       }
 
       keyboard.append(key);
-    })
+    });
   }
 
   showKeys() {
@@ -28,7 +28,7 @@ class Keyboard {
 
     for (let i = 0; i < keyDiv.length; i++) {
       if (this.keys[i][this.lang]) {
-        keyDiv[i].innerHTML = this.keys[i][this.lang]
+        keyDiv[i].innerHTML = this.keys[i][this.lang];
       }
     }
   }
@@ -50,7 +50,7 @@ class Keyboard {
   getLanguage() {
     let currLang = 'en';
     if (!localStorage.getItem('language')) {
-      this.setLanguage(currLang)
+      this.setLanguage(currLang);
     } else {
       currLang = localStorage.getItem('language');
     }

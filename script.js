@@ -24,4 +24,4 @@ document.addEventListener('keydown', (event) => {
     keyboard.setLang();
     keyboard.showKeys();
   }
-})
+});

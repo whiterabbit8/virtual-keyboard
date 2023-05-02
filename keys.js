@@ -87,7 +87,7 @@ const KEYS = [
   }, {
     code: 'Semicolon', en: ';', enShift: ':', ru: 'ж', ruShift: 'Ж',
   }, {
-    code: 'Quote', en: "'", enShift: '"', ru: 'э', ruShift: 'Э',
+    code: 'Quote', en: '\'', enShift: '"', ru: 'э', ruShift: 'Э',
   }, {
     code: 'Enter', isSpecial: true, name: 'enter', class: 'enter',
   },

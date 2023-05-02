@@ -36,7 +36,10 @@
   cursor: pointer;
 }
 
-.key:hover,
+.key:hover {
+  background: #b46301;
+}
+
 .key.pressed {
   background: #ff8c00;
 }
