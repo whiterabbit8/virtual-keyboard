@@ -33,6 +33,10 @@ class Keyboard {
     }
   }
 
+  showShiftedKeys() {
+
+  }
+
   setLang() {
     this.lang === 'en' ? this.lang = 'ru' : this.lang = 'en';
     this.setLanguage(this.lang);
@@ -52,6 +56,7 @@ class Keyboard {
     }
     return currLang;
   }
+
 }
 
 export default Keyboard;
