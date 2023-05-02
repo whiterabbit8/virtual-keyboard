@@ -1,9 +1,7 @@
-//import keys from './keys.js';
-
 class Keyboard {
   constructor(keys) {
     this.keys = keys;
-    this.lang = 'en';
+    this.lang = this.getLanguage();
   }
 
   createKeyboard() {
@@ -36,9 +34,24 @@ class Keyboard {
   }
 
   setLang() {
-    console.log(this.lang);
     this.lang === 'en' ? this.lang = 'ru' : this.lang = 'en';
+    this.setLanguage(this.lang);
+  }
+
+  setLanguage(lang = this.lang) {
+    localStorage.setItem('language', lang);
+    return this;
+  }
+
+  getLanguage() {
+    let currLang = 'en';
+    if (!localStorage.getItem('language')) {
+      this.setLanguage(currLang)
+    } else {
+      currLang = localStorage.getItem('language');
+    }
+    return currLang;
   }
 }
 
-export default Keyboard
+export default Keyboard;
