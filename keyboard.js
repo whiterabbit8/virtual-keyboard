@@ -19,11 +19,25 @@ class Keyboard {
         key.innerHTML = item.name;
       } else {
         key.className = 'key';
-        key.innerHTML = item[this.lang];
       }
 
       keyboard.append(key);
     })
+  }
+
+  showKeys() {
+    const keyDiv = document.querySelectorAll('.key');
+
+    for (let i = 0; i < keyDiv.length; i++) {
+      if (this.keys[i][this.lang]) {
+        keyDiv[i].innerHTML = this.keys[i][this.lang]
+      }
+    }
+  }
+
+  setLang() {
+    console.log(this.lang);
+    this.lang === 'en' ? this.lang = 'ru' : this.lang = 'en';
   }
 }
 

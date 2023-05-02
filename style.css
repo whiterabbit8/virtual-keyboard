@@ -1,10 +1,12 @@
 .body {
   display: flex;
   flex-direction: column;
+  font-family: 'Arial';
 }
 
 .textarea {
   margin: 20px auto;
+  font-size: 18px;
 }
 
 .keyboard {
@@ -29,7 +31,6 @@
   background: #535353;
   border-radius: 3px;
   color: #fff;
-  font-family: 'Arial';
   font-size: 16px;
   transition: 0.3s;
   cursor: pointer;
@@ -78,6 +79,10 @@
   background: #353535;
 }
 
-.hide {
-  display: none;
+.p {
+  font-size: 18px;
+  color: #005d77;
+  margin: 10px auto;
+  text-align: center;
+  font-weight: 700;
 }

@@ -125,11 +125,11 @@ const KEYS = [
   {
     code: 'ControlLeft', isSpecial: true, name: 'ctrl', class: 'ctrl ctrl_left',
   }, {
-    code: 'AltLeft', isSpecial: true, name: 'alt', class: 'alt alt_left',
-  }, {
     code: 'MetaLeft', isSpecial: true, name: 'win', class: 'win win_left',
   }, {
-    code: 'Space', isSpecial: true, name: '', class: 'space',
+    code: 'AltLeft', isSpecial: true, name: 'alt', class: 'alt alt_left',
+  }, {
+    code: 'Space', isSpecial: true, name: ' ', class: 'space',
   }, {
     code: 'MetaRight', isSpecial: true, name: 'alt', class: 'alt alt_right',
   }, {
