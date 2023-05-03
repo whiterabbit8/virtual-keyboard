@@ -41,18 +41,30 @@ function highlightKey(event) {
   } else if (event.type === 'mouseup') {
     keyDiv.forEach(item => item.classList.remove('pressed'));
   }
+}
 
+let caps = false;
+
+function switchCapsLock() {
+  caps = caps ? false : true;
 }
 
 function printText(key) {
   if (key.innerHTML.length === 1) {
-    textarea.innerHTML += key.innerHTML;
+    if (!caps) {
+      textarea.innerHTML += key.innerHTML;
+    } else {
+      textarea.innerHTML += key.innerHTML.toUpperCase();
+    }
   } else if (key.innerHTML === 'backspace') {
     textarea.innerHTML = textarea.innerHTML.slice(0, -1);
   } else if (key.innerHTML === 'enter') {
     textarea.innerHTML += '&#13;&#10;';
   } else if (key.innerHTML === 'tab') {
     textarea.innerHTML += '    ';
+  } else if (key.innerHTML === 'capslock') {
+    switchCapsLock();
+    document.querySelector('.caps').classList.toggle('active');
   }
 }
 

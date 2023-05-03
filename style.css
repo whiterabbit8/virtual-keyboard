@@ -51,6 +51,10 @@
   width: 100px;
 }
 
+.caps.active {
+  color: #6dc700;
+}
+
 .tab {
   width: 55px;
 }
