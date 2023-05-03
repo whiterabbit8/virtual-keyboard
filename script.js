@@ -39,7 +39,7 @@ function highlightKey(event) {
     targetKey.classList.add('pressed');
     printText(targetKey);
   } else if (event.type === 'mouseup') {
-    keyDiv.forEach(item => item.classList.remove('pressed'))
+    keyDiv.forEach(item => item.classList.remove('pressed'));
   }
 
 }
