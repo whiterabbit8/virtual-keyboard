@@ -125,13 +125,13 @@ const KEYS = [
   {
     code: 'ControlLeft', isSpecial: true, name: 'ctrl', class: 'ctrl ctrl_left',
   }, {
-    code: 'MetaLeft', isSpecial: true, name: 'win', class: 'win win_left',
+    code: 'MetaLeft', isSpecial: true, name: 'win', class: 'meta',
   }, {
     code: 'AltLeft', isSpecial: true, name: 'alt', class: 'alt alt_left',
   }, {
     code: 'Space', isSpecial: true, name: ' ', class: 'space',
   }, {
-    code: 'MetaRight', isSpecial: true, name: 'alt', class: 'alt alt_right',
+    code: 'AltRight', isSpecial: true, name: 'alt', class: 'alt alt_right',
   }, {
     code: 'ArrowLeft', isSpecial: true, name: '←', class: 'arrow arrow_left',
   }, {
@@ -139,7 +139,7 @@ const KEYS = [
   }, {
     code: 'ArrowRight', isSpecial: true, name: '→', class: 'arrow arrow_right',
   }, {
-    code: 'AltRight', isSpecial: true, name: 'ctrl', class: 'ctrl ctrl_right',
+    code: 'ControlRight', isSpecial: true, name: 'ctrl', class: 'ctrl ctrl_right',
   },
 ];
 

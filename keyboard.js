@@ -33,8 +33,18 @@ class Keyboard {
     }
   }
 
-  showShiftedKeys() {
+  showShiftedKeys(event) {
+    const keyDiv = document.querySelectorAll('.key');
 
+    if (event.type === 'keydown') {
+      for (let i = 0; i < keyDiv.length; i++) {
+        if (this.keys[i][this.lang + 'Shift']) {
+          keyDiv[i].innerHTML = this.keys[i][this.lang + 'Shift'];
+        }
+      }
+    } else if (event.type === 'keyup') {
+      this.showKeys();
+    }
   }
 
   setLang() {
@@ -56,6 +66,7 @@ class Keyboard {
     }
     return currLang;
   }
+
 
 }
 

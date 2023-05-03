@@ -18,10 +18,34 @@ p.innerHTML = 'Keyboard developed in Windows<br>For language switch use leftAlt 
 '<a href="https://github.com/whiterabbit8/virtual-keyboard/pull/2">Link to Pull Request</a><br>Sorry for that, I was exausted and innatentive';
 document.body.append(p);
 
+function highlightKey(event) {
+  const keyDiv = document.querySelectorAll('.key');
+
+  for (let i = 0; i < keyDiv.length; i++) {
+    if (event.code === KEYS[i].code) {
+      if (event.type === 'keydown') {
+        event.preventDefault();
+        keyDiv[i].classList.add('pressed');
+      } else if (event.type === 'keyup') {
+        keyDiv[i].classList.remove('pressed');
+      }
+    }
+  }
+}
 
 document.addEventListener('keydown', (event) => {
   if (event.shiftKey && event.altKey) {
     keyboard.setLang();
     keyboard.showKeys();
+  } else if (event.shiftKey) {
+    keyboard.showShiftedKeys(event);
   }
+  highlightKey(event);
+});
+
+document.addEventListener('keyup', (event) => {
+  if (event.key === 'Shift') {
+    keyboard.showShiftedKeys(event);
+  }
+  highlightKey(event);
 });
