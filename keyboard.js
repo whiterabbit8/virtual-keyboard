@@ -67,7 +67,6 @@ class Keyboard {
     return currLang;
   }
 
-
 }
 
 export default Keyboard;

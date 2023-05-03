@@ -26,6 +26,7 @@ function highlightKey(event) {
       if (event.type === 'keydown') {
         event.preventDefault();
         keyDiv[i].classList.add('pressed');
+        printText(keyDiv[i]);
       } else if (event.type === 'keyup') {
         keyDiv[i].classList.remove('pressed');
       }
@@ -36,10 +37,23 @@ function highlightKey(event) {
 
   if (event.type === 'mousedown') {
     targetKey.classList.add('pressed');
+    printText(targetKey);
   } else if (event.type === 'mouseup') {
-    targetKey.classList.remove('pressed');
+    keyDiv.forEach(item => item.classList.remove('pressed'))
   }
 
+}
+
+function printText(key) {
+  if (key.innerHTML.length === 1) {
+    textarea.innerHTML += key.innerHTML;
+  } else if (key.innerHTML === 'backspace') {
+    textarea.innerHTML = textarea.innerHTML.slice(0, -1);
+  } else if (key.innerHTML === 'enter') {
+    textarea.innerHTML += '&#13;&#10;';
+  } else if (key.innerHTML === 'tab') {
+    textarea.innerHTML += '    ';
+  }
 }
 
 document.addEventListener('keydown', (event) => {
@@ -59,8 +73,8 @@ document.addEventListener('keyup', (event) => {
   highlightKey(event);
 });
 
-document.addEventListener('mousedown', (event) => {
+document.querySelector('.keyboard').addEventListener('mousedown', (event) => {
   highlightKey(event);
 });
 
-document.addEventListener('mouseup', highlightKey);
+document.querySelector('.keyboard').addEventListener('mouseup', highlightKey);
