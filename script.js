@@ -31,6 +31,15 @@ function highlightKey(event) {
       }
     }
   }
+
+  let targetKey = event.target.closest('.key');
+
+  if (event.type === 'mousedown') {
+    targetKey.classList.add('pressed');
+  } else if (event.type === 'mouseup') {
+    targetKey.classList.remove('pressed');
+  }
+
 }
 
 document.addEventListener('keydown', (event) => {
@@ -49,3 +58,9 @@ document.addEventListener('keyup', (event) => {
   }
   highlightKey(event);
 });
+
+document.addEventListener('mousedown', (event) => {
+  highlightKey(event);
+});
+
+document.addEventListener('mouseup', highlightKey);
