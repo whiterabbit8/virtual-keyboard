@@ -14,39 +14,14 @@ keyboard.showKeys();
 
 const p = document.createElement('p');
 p.className = 'p';
-p.innerHTML = 'Keyboard developed in Windows<br>For language switch use leftAlt + leftShift<br><br><br>' +
-'<a href="https://github.com/whiterabbit8/virtual-keyboard/pull/2">Link to Pull Request</a><br>Sorry for that, I was exausted and innatentive';
+p.innerHTML = 'Keyboard developed in Windows<br>For language switch use leftAlt + leftShift<br><br><br>'
++ '<a href="https://github.com/whiterabbit8/virtual-keyboard/pull/2">Link to Pull Request</a><br>Sorry for that, I was exausted and innatentive';
 document.body.append(p);
-
-function highlightKey(event) {
-  const keyDiv = document.querySelectorAll('.key');
-
-  for (let i = 0; i < keyDiv.length; i++) {
-    if (event.code === KEYS[i].code) {
-      if (event.type === 'keydown') {
-        event.preventDefault();
-        keyDiv[i].classList.add('pressed');
-        printText(keyDiv[i]);
-      } else if (event.type === 'keyup') {
-        keyDiv[i].classList.remove('pressed');
-      }
-    }
-  }
-
-  let targetKey = event.target.closest('.key');
-
-  if (event.type === 'mousedown') {
-    targetKey.classList.add('pressed');
-    printText(targetKey);
-  } else if (event.type === 'mouseup') {
-    keyDiv.forEach(item => item.classList.remove('pressed'));
-  }
-}
 
 let caps = false;
 
 function switchCapsLock() {
-  caps = caps ? false : true;
+  caps = !caps;
 }
 
 function printText(key) {
@@ -65,6 +40,31 @@ function printText(key) {
   } else if (key.innerHTML === 'capslock') {
     switchCapsLock();
     document.querySelector('.caps').classList.toggle('active');
+  }
+}
+
+function highlightKey(event) {
+  const keyDiv = document.querySelectorAll('.key');
+
+  for (let i = 0; i < keyDiv.length; i += 1) {
+    if (event.code === KEYS[i].code) {
+      if (event.type === 'keydown') {
+        event.preventDefault();
+        keyDiv[i].classList.add('pressed');
+        printText(keyDiv[i]);
+      } else if (event.type === 'keyup') {
+        keyDiv[i].classList.remove('pressed');
+      }
+    }
+  }
+
+  const targetKey = event.target.closest('.key');
+
+  if (event.type === 'mousedown') {
+    targetKey.classList.add('pressed');
+    printText(targetKey);
+  } else if (event.type === 'mouseup') {
+    keyDiv.forEach((item) => item.classList.remove('pressed'));
   }
 }
 

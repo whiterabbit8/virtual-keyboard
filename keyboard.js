@@ -9,11 +9,11 @@ class Keyboard {
     keyboard.className = 'keyboard';
     document.body.append(keyboard);
 
-    this.keys.forEach(item => {
+    this.keys.forEach((item) => {
       const key = document.createElement('div');
 
       if (item.isSpecial) {
-        key.className = 'key ' + item.class;
+        key.className = `key ${item.class}`;
         key.innerHTML = item.name;
       } else {
         key.className = 'key';
@@ -26,7 +26,7 @@ class Keyboard {
   showKeys() {
     const keyDiv = document.querySelectorAll('.key');
 
-    for (let i = 0; i < keyDiv.length; i++) {
+    for (let i = 0; i < keyDiv.length; i += 1) {
       if (this.keys[i][this.lang]) {
         keyDiv[i].innerHTML = this.keys[i][this.lang];
       }
@@ -37,9 +37,9 @@ class Keyboard {
     const keyDiv = document.querySelectorAll('.key');
 
     if (event.type === 'keydown') {
-      for (let i = 0; i < keyDiv.length; i++) {
-        if (this.keys[i][this.lang + 'Shift']) {
-          keyDiv[i].innerHTML = this.keys[i][this.lang + 'Shift'];
+      for (let i = 0; i < keyDiv.length; i += 1) {
+        if (this.keys[i][`${this.lang}Shift`]) {
+          keyDiv[i].innerHTML = this.keys[i][`${this.lang}Shift`];
         }
       }
     } else if (event.type === 'keyup') {
@@ -48,7 +48,7 @@ class Keyboard {
   }
 
   setLang() {
-    this.lang === 'en' ? this.lang = 'ru' : this.lang = 'en';
+    this.lang = (this.lang === 'en') ? 'ru' : 'en';
     this.setLanguage(this.lang);
   }
 
@@ -66,7 +66,6 @@ class Keyboard {
     }
     return currLang;
   }
-
 }
 
 export default Keyboard;

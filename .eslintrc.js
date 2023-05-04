@@ -1,32 +1,38 @@
 module.exports = {
-  'env': {
-    'browser': true,
-    'es2021': true,
-    'node': true,
+  env: {
+    browser: true,
+    es2021: true,
+    node: true,
   },
-  'extends': 'eslint:recommended',
-  'overrides': [
+  extends: 'airbnb-base',
+  overrides: [
   ],
-  'parserOptions': {
-    'ecmaVersion': 'latest',
-    'sourceType': 'module'
+  parserOptions: {
+    ecmaVersion: 'latest',
+    sourceType: 'module',
   },
-  'rules': {
-    'indent': [
+  rules: {
+    'import/extensions': [
       'error',
-      2
+      {
+        js: 'ignorePackages',
+      },
+    ],
+    indent: [
+      'error',
+      2,
     ],
     'linebreak-style': [
       'error',
-      'windows'
+      'windows',
     ],
-    'quotes': [
+    quotes: [
       'error',
-      'single'
+      'single',
     ],
-    'semi': [
+    semi: [
       'error',
-      'always'
+      'always',
     ],
-  }
+  },
 };
