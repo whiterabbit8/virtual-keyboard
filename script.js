@@ -77,11 +77,13 @@ function highlightKey(event) {
 
   const targetKey = event.target.closest('.key');
 
-  if (event.type === 'mousedown') {
-    targetKey.classList.add('pressed');
-    printText(targetKey);
-  } else if (event.type === 'mouseup') {
-    keyDiv.forEach((item) => item.classList.remove('pressed'));
+  if (targetKey) {
+    if (event.type === 'mousedown') {
+      targetKey.classList.add('pressed');
+      printText(targetKey);
+    } else if (event.type === 'mouseup') {
+      keyDiv.forEach((item) => item.classList.remove('pressed'));
+    }
   }
 }
 
