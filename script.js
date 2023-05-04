@@ -6,6 +6,10 @@ textarea.className = 'textarea';
 textarea.setAttribute('cols', '65');
 textarea.setAttribute('rows', '10');
 document.body.append(textarea);
+textarea.focus();
+textarea.addEventListener('blur', () => {
+  textarea.focus();
+});
 
 const keyboard = new Keyboard(KEYS);
 
@@ -25,22 +29,35 @@ function switchCapsLock() {
 }
 
 function printText(key) {
+  let cursorPosition = textarea.selectionStart;
+  let beforeCursor = textarea.value.slice(0, cursorPosition);
+  let afterCursor = textarea.value.slice(cursorPosition);
+
   if (key.innerHTML.length === 1) {
     if (!caps) {
-      textarea.innerHTML += key.innerHTML;
+      beforeCursor += key.innerHTML;
+      cursorPosition += 1;
     } else {
-      textarea.innerHTML += key.innerHTML.toUpperCase();
+      beforeCursor += key.innerHTML.toUpperCase();
+      cursorPosition += 1;
     }
   } else if (key.innerHTML === 'backspace') {
-    textarea.innerHTML = textarea.innerHTML.slice(0, -1);
+    beforeCursor = beforeCursor.slice(0, -1);
+    cursorPosition -= 1;
+  } else if (key.innerHTML === 'del') {
+    afterCursor = afterCursor.slice(1);
   } else if (key.innerHTML === 'enter') {
-    textarea.innerHTML += '&#13;&#10;';
+    beforeCursor += '\n';
+    cursorPosition += 1;
   } else if (key.innerHTML === 'tab') {
-    textarea.innerHTML += '    ';
+    beforeCursor += '    ';
+    cursorPosition += 4;
   } else if (key.innerHTML === 'capslock') {
     switchCapsLock();
     document.querySelector('.caps').classList.toggle('active');
   }
+  textarea.value = beforeCursor + afterCursor;
+  textarea.setSelectionRange(cursorPosition, cursorPosition);
 }
 
 function highlightKey(event) {
@@ -70,7 +87,7 @@ function highlightKey(event) {
 
 document.addEventListener('keydown', (event) => {
   if (event.shiftKey && event.altKey) {
-    keyboard.setLang();
+    keyboard.changeLang();
     keyboard.showKeys();
   } else if (event.shiftKey) {
     keyboard.showShiftedKeys(event);

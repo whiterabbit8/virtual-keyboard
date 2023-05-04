@@ -47,7 +47,7 @@ class Keyboard {
     }
   }
 
-  setLang() {
+  changeLang() {
     this.lang = (this.lang === 'en') ? 'ru' : 'en';
     this.setLanguage(this.lang);
   }
